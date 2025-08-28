@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.gianfcop.starterkit</groupId>
-	<artifactId>springboot-dto-mapping-lite</artifactId>
+	<artifactId>springboot-dto-mapping-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Spring Boot DTO Mapping Lite</name>
 	<description>Spring Boot Starter Kit for clean DTO and Entity mapping using MapStruct, ModelMapper, and best practices</description>
