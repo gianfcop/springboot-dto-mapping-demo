@@ -9,9 +9,6 @@ import com.starterkit.api.dto.request.ProductRequest;
 import com.starterkit.api.dto.response.ProductResponse;
 import com.starterkit.api.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -34,16 +31,10 @@ public class ProductController {
     @Operation(
         summary = "Create a new product",
         description = "Creates a product with a name and category",
-        requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-            description = "Product details",
-            required = true,
-            content = @Content(schema = @Schema(implementation = ProductRequest.class))
-        ),
         responses = {
             @ApiResponse(
                 responseCode = "201",
-                description = "Product created successfully",
-                content = @Content(schema = @Schema(implementation = ProductResponse.class))
+                description = "Product created successfully"
             )
         }
     )
@@ -59,14 +50,7 @@ public class ProductController {
 
     @Operation(
         summary = "Get all products",
-        description = "Retrieves a list of all products",
-        responses = {
-            @ApiResponse(
-                responseCode = "200",
-                description = "Successful retrieval",
-                content = @Content(array = @ArraySchema(schema = @Schema(implementation = ProductResponse.class)))
-            )
-        }
+        description = "Retrieves a list of all products"
     )
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ProductResponse>> getAllProducts() {
@@ -79,19 +63,7 @@ public class ProductController {
 
     @Operation(
         summary = "Update an existing product",
-        description = "Updates the details of an existing product by ID",
-        requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-            description = "Product details",
-            required = true,
-            content = @Content(schema = @Schema(implementation = ProductRequest.class))
-        ),
-        responses = {
-            @ApiResponse(
-                responseCode = "200",
-                description = "Product updated successfully",
-                content = @Content(schema = @Schema(implementation = ProductResponse.class))
-            )
-        }
+        description = "Updates the details of an existing product by ID"
     )
     @PutMapping(value = "/{id}", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<ProductResponse> updateProduct(
